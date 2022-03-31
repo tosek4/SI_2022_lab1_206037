@@ -1,0 +1,178 @@
+1.Најпрвин е искористена командата:
+	git clone (Со што е клониран репозиториумиот локално на нашата машина)
+
+2.Според барањето во чекор 5 искористени се две команди: 
+	git add (Со оваа команда shopping_list.txt се додаде во staging area)
+	git commit -m (Потоа со извршување на ова наредба shopping_list.txt од staging area оди во unmodified со што е
+ 		       сепремна за да и се исврши push и со тоа се испрајча на remote repo)
+
+3.Во овој чекор е искористена само наредбата 
+	git commit -m (По исвршените промени во shopping_list.txt од unmodified е преместена во фазата modified па со оваа команда повторно се враќа во unmodified)
+
+4.git checkout -b "name" е командата со која креираме нови гранки.
+
+5.Барање број 8:
+	tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+	$ git status
+	On branch master
+	Your branch is up to date with 'origin/master'.
+
+	Untracked files:
+  		(use "git add <file>..." to include in what will be committed)
+       		 206037.txt.txt
+       		 shopping_list.txt.txt
+
+	nothing added to commit but untracked files present (use "git add" to track)
+
+	
+	tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+	$ git add shopping_list.txt.txt
+
+	tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+	$ git commit -m "Add 5 items to the shopping list"
+	[master c231846] Add 5 items to the shopping list
+ 	1 file changed, 5 insertions(+)
+	 create mode 100644 shopping_list.txt.txt
+
+	tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+	$ git status
+	On branch master
+	Your branch is ahead of 'origin/master' by 1 commit.
+  	(use "git push" to publish your local commits)
+
+	Untracked files:
+ 		 (use "git add <file>..." to include in what will be committed)
+     		   206037.txt.txt
+
+	nothing added to commit but untracked files present (use "git add" to track)
+
+	tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+	$ git status
+	On branch master
+	Your branch is ahead of 'origin/master' by 1 commit.
+  	 (use "git push" to publish your local commits)
+
+	Changes not staged for commit:
+  		(use "git add <file>..." to update what will be committed)
+  		(use "git restore <file>..." to discard changes in working directory)
+     		   modified:   shopping_list.txt.txt
+
+	Untracked files:
+  		(use "git add <file>..." to include in what will be committed)
+     	        206037.txt.txt
+
+	no changes added to commit (use "git add" and/or "git commit -a")
+
+	tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+	$ git add shopping_list.txt.txt
+
+	tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+	$ git commit -m "Add quantities to the items"
+	[master c1d7973] Add quantities to the items
+	 1 file changed, 5 insertions(+), 5 deletions(-)
+
+
+	tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+	$ git checkout -b branch1
+	Switched to a new branch 'branch1'
+
+	tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (branch1)
+	$ git checkout master
+	Switched to branch 'master'
+	Your branch is up to date with 'origin/master'.
+
+	tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+	$ git checkout -b branch2
+	Switched to a new branch 'branch2'
+
+6.Синхронизацијата на сите гранки со одалечениот репозиториум ја вршиме со наредбата:
+	git push origin "branch name"
+
+7.Префрлањето до една на друга гранка се врши со командата:
+	git checkout "branch name"
+
+8. 
+tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+$ git checkout branch1
+Switched to branch 'branch1'
+
+tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (branch1)
+$ git add shopping_list.txt.txt
+
+tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (branch1)
+$ git commit -m "Change quantity of item #5"
+[branch1 1dab9b4] Change quantity of item #5
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (branch1)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+$ git add shopping_list.txt.txt
+
+tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+$ git commit -m "Change quantity of item #2"
+[master 9f46ceb] Change quantity of item #2
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 344 bytes | 344.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:tosek4/SI_2022_lab1_206037.git
+   c1d7973..9f46ceb  master -> master
+
+tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+$ git push origin branch1
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 347 bytes | 347.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To github.com:tosek4/SI_2022_lab1_206037.git
+   c1d7973..1dab9b4  branch1 -> branch1
+
+tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+$ git push origin branch2
+Everything up-to-date
+
+tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+$ git checkout branch2
+Switched to branch 'branch2'
+
+tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (branch2)
+$ git add shopping_list.txt.txt
+
+tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (branch2)
+$ git commit -m "Modify item #4"
+[branch2 d9cfe02] Modify item #4
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+
+
+9.tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (branch2)
+$ git add shopping_list.txt.txt
+
+tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (branch2)
+$ git commit --amend
+[branch2 ea8cba9] Modify item #4 and add item #6
+ Date: Mon Mar 28 21:04:41 2022 +0200
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+
+10.Чекор "20" - При спојување на master со branch1 не се јавува конфликт. Спојувањето се врши по рекурзивна стратегија
+	tosek@DESKTOP-78ETAQE MINGW64 ~/Desktop/SI_2022_lab1_206037 (master)
+	$ git merge branch1
+	Auto-merging shopping_list.txt.txt
+	Merge made by the 'recursive' strategy.
+
+
+11.Чекор "21" - При спојување на master со branch2  се јавува конфликт. Конфликтот го решавам мануелно односно сам одлучив да ги задржам промените кои беа направени во  branch2.
+  Спојувањето се одвиваше по рекурзивна стратегија. 
