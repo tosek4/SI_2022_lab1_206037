@@ -1,5 +1,5 @@
-apple
-pear
-lemon
-carrot
-orange
+apple x 10
+pear x 8
+lemon x 4
+carrot x 9
+orange x 3
